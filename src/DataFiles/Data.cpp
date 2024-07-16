@@ -92,4 +92,6 @@ void Data::Modify(std::string Findkey, std::string Findstr, std::string Modifyke
         }
         NewData.push_back(data);
     }
+    file.cleardata();
+    file.savedata(NewData);
 }

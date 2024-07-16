@@ -18,7 +18,7 @@ void Buffer::copy(char *str, const char *_str)
     }
     else
     {
-        strncpy(str, _str, this->size - 1);
+        strncpy(str, _str, int(this->size) - 1);
         str[this->size - 1] = '\0';
     }
 }

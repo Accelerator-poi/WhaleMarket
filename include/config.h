@@ -3,6 +3,7 @@
 #define PWD_MAX_LEN 21
 #define TELEPHONE_MAX_LEN 21
 #define ADDRESS_MAX_LEN 21
+#define TIME_MAX_LEN 21
 #define BUFFER_SIZE 10
 #define MENU_NUM 8
 #define GOODSINFO_MAX_LEN 101

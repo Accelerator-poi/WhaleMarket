@@ -12,7 +12,7 @@ void MainMenu::UserHandle(int choice)
             this->currentState = PageState::SellerPage;
             break;
         case 3:
-            this->currentState = PageState::InformatioPage;
+            this->currentState = PageState::InformationPage;
             break;
         case 4:
             this->currentState = PageState::MainPage;

@@ -6,12 +6,14 @@
 #include "config.h"
 class Buffer;
 
-extern char* stateprompte[3];
+// extern char* stateprompte[3];
+static const char *stateprompte[3] = {"已售出", "已下架", "销售中"};
 
 class Goods
 {
     public:
-        Goods(char* GoodsId,char* Name,float Price,char* Info,char* SellerId,char* Time,int State);
+        Goods(const char* GoodsId,const char* Name,const float Price,const char* Info,
+                const char* SellerId,const char* Time,const int State);
         ~Goods();
         const char* GetGoodsId() const;
         const char* GetName() const;
@@ -35,7 +37,7 @@ class Goods
         float price;
         char info[GOODSINFO_MAX_LEN];
         char sellerid[ID_MAX_LEN];
-        char* time;
+        char time[TIME_MAX_LEN];
         int state;
         Buffer* buffer;
 };

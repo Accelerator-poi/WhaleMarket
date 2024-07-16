@@ -13,7 +13,7 @@ enum class PageState
     UserPage,
     BuyerPage,
     SellerPage,
-    InformatioPage,
+    InformationPage,
     ModifyPage,
     GoodPage
 };
@@ -21,7 +21,7 @@ enum class PageState
 class MainMenu
 {
 public:
-    // MainMenu();
+    MainMenu();
     void PageShow();
     void MainHandle(int choice);
     void AdminHandle(int choice);
@@ -55,7 +55,16 @@ public:
     void SellerBanGood();
     void SellerViewOrder();
 
+    void GoodModifyName();
+    void GoodModifyPrice();
+    void GoodModifyInfo();
 
+    void UserModifyPwd();
+    void UserModifyTelephone();
+    void UserModifyAddress();
+
+    void UserInfomation();
+    void UserTopUp();
 
 private:
     PageState currentState = PageState::MainPage;

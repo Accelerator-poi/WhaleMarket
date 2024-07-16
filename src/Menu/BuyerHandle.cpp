@@ -6,6 +6,7 @@
 #include "MyException/MyException.h"
 #include <iostream>
 #include <iomanip>
+// #include <format>
 #include <ctime>
 
 void MainMenu::BuyerHandle(int choice)
@@ -51,11 +52,15 @@ void MainMenu::BuyerGoodsInfo()
     {
         std::cout << std::setw(15) << std::setfill(' ') << std::left << GoodTile[i];
     }
+    std::cout << std::endl;
     for (auto Good : GoodVec)
     {
         for (int i = 0; i < int(Good.size() - 1); i++)
         {
-            std::cout << std::setw(15) << std::setfill(' ') << std::left << Good[i];
+            if(i <3)
+                std::cout << std::setw(15) << std::setfill(' ') << std::left << Good[i];
+            else    
+                std::cout << std::setw(15) << std::setfill(' ') << std::left << Good[i+1];
         }
         std::cout << std::endl;
     }
@@ -103,28 +108,35 @@ void MainMenu::BuyGoods()
         return;
     }
     std::string LastBalance = std::to_string(std::stod(UserVec[0][5]) - std::stod(Price));
-    UserData.modify("Id", this->UserId, "Balance", LastBalance, UserMap, UserFile);
+    UserData.Modify("Id", this->UserId, "Balance", LastBalance, UserMap, UserFile);
 
     time_t now;
     time(&now);
     tm *ltm = localtime(&now);
-    std::string Time = "{}-{}-{}".format(ltm->tm_year + 1900, ltm->tm_mon + 1, ltm->tm_mday);
+    std::string Time = std::to_string(ltm->tm_year + 1900) + "-" + std::to_string(ltm->tm_mon + 1) + "-" + std::to_string(ltm->tm_mday);
 
     std::vector<std::string> tempvec;
     Datafiles OrderFile("/home/luffy/WhaleMarket-Framework/data/OrderData.txt");
-    Data OrderData;
     OrderFile.getdata(tempvec);
     int OrderNum = tempvec.size();
     std::ostringstream oss;
     oss << 'O' << std::setfill('0') << std::setw(5) << OrderNum;
     std::string OrderId = oss.str();
-    Order NewOrder(OrderId, GoodId, Price, Time, GoodVec[0][4], this->UserId);
-    Orderfile.savedata(NewOrder);
+    Order NewOrder(OrderId.c_str(), GoodId.c_str(), std::stof(Price),
+                    Time.c_str(), GoodVec[0][4].c_str(), this->UserId.c_str());
+    OrderFile.savedata(NewOrder);
+    GoodData.Modify("Id", GoodId, "State", "已售出", GoodsMap, GoodFile);
+    UserData.find("Id", GoodVec[0][4], UserMap, UserFile, UserVec);
+    float SellerBalance = std::stof(UserVec[0][5]) + std::stof(Price);
+    UserData.Modify("Id", GoodVec[0][4], "Balance", 
+                    std::to_string(SellerBalance), UserMap, UserFile);
 
     std::cout << "购买成功！" << std::endl;
     std::cout << "订单号：" << OrderId << std::endl;
     std::cout << "您的余额为：" << LastBalance << std::endl;
     std::cout << std::setw(90) << std::setfill('*') << '*' << std::endl;
+
+
 }
 
 void MainMenu::UserSearchGoods()
@@ -137,7 +149,7 @@ void MainMenu::UserSearchGoods()
     std::cout << "请输入商品名" << std::endl;
     std::cin >> SearchKey;
     GoodData.find("Name", SearchKey, GoodsMap, GoodFile, GoodVec);
-    for (int i = 0; i < int(GoodVec); i++)
+    for (int i = 0; i < int(GoodVec.size()); i++)
     {
         if (GoodVec[i][5] != "销售中")
         {
@@ -226,7 +238,7 @@ void MainMenu::ViewGoodsInfo()
         return;
     }
 
-    if (GoodVec[0][5] != "销售中")
+    if (GoodVec[0][6] != "销售中")
     {
         std::cout << "商品已下架！" << std::endl;
         return;

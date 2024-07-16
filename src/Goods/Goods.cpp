@@ -1,9 +1,9 @@
 #include "Goods/Goods.h"
 #include "Buffer/Buffer.h"
 
-char *stateprompte[3] = {"已售出", "已下架", "销售中"};
 
-Goods::Goods(char *GoodsId, char *Name, float Price, char *Info, char *SellerId, char *Time, int State)
+Goods::Goods(const char *GoodsId,const char *Name,const float Price,
+            const char *Info,const char *SellerId,const char *Time,const int State)
 {
     buffer = new Buffer;
     buffer->copy(this->goodsid, GoodsId, sizeof(this->goodsid));
@@ -11,7 +11,7 @@ Goods::Goods(char *GoodsId, char *Name, float Price, char *Info, char *SellerId,
     this->price = Price;
     buffer->copy(this->info, Info, sizeof(this->info));
     buffer->copy(this->sellerid, SellerId, sizeof(this->sellerid));
-    this->time = Time;
+    buffer->copy(this->time, Time, sizeof(this->time));
     this->state = State;
 }
 
@@ -82,7 +82,7 @@ void Goods::SetSellerId(char *SellerId)
 
 void Goods::SetTime(char *Time)
 {
-    this->time = Time;
+    buffer->copy(this->time, Time, sizeof(this->time));
 }
 
 void Goods::SetState(int State)

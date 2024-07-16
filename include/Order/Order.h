@@ -28,7 +28,7 @@ private:
     char orderid[ID_MAX_LEN];
     char goodsid[ID_MAX_LEN];
     float price;
-    char* time;
+    char time[TIME_MAX_LEN];
     char sellerid[ID_MAX_LEN];
     char buyerid[ID_MAX_LEN];
     Buffer* buffer;
