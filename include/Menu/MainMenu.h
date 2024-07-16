@@ -43,10 +43,23 @@ public:
     void DeleteUser();
     void BanGood();
 
+    void BuyerGoodsInfo();
+    void BuyGoods();
+    void UserSearchGoods();
+    void BuyerViewOrder();
+    void ViewGoodsInfo();
+
+    void SellGoods();
+    void SellerGoodsInfo();
+    void ModifyGoods();
+    void SellerBanGood();
+    void SellerViewOrder();
+
+
 
 private:
     PageState currentState = PageState::MainPage;
-    std::string UserId;
+    std::string UserId = "";
 };
 
 #endif
