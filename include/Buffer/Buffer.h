@@ -13,7 +13,6 @@ public:
     Buffer();
     void copy(char *str, const char *_str);
     void copy(char *str, const char *_str, int size);
-    void fill(char *str, const char *_str, int size);
 
 private:
     int size;

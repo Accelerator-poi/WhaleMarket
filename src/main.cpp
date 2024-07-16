@@ -44,8 +44,8 @@ int main()
     int num;
     MainMenu menu;
     menu.PageShow();
-    std::cin>>num;
-    menu.MainHandle(num);
+    // std::cin>>num;
+    menu.UsersInfo();
     menu.PageShow();
     return 0;
 }

@@ -46,3 +46,11 @@ extern std::map<std::string, int> OrderMap;
 //页面选项数
 //extern int PageNum[MENU_NUM] = {4,7,4,6,6,4,4,4};
 extern int PageNum[MENU_NUM];
+
+//各项信息显示长度
+extern int GoodBuffer[6];
+
+//各表表头
+static const char* GoodTile[6] = {"GoodId","Name","Price","SellerId","Time","State"};
+static const char* OrderTile[6] = {"Id","GoodId","Price","Time","BuyerId","SellerId"};
+static const char* UserTile[5] = {"Id","Name","Telephone","Address","Balance"};

@@ -5,3 +5,7 @@ std::map<std::string, int> GoodsMap = {{"Id", 0}, {"Name", 1}, {"Price", 2}, {"I
 std::map<std::string, int> OrderMap = {{"Id", 0}, {"GoodsId", 1}, {"Price", 2}, {"Time", 3}, {"SellerId", 4}, {"BuyerId", 5}};
 
 int PageNum[MENU_NUM] = {4,7,4,6,6,4,4,4};
+
+// int GoodBuffer[6] = {10,15,10,15,10,15};
+
+// char* GoodTile[6] = {'GoodId','Name','Price','SellerId','Time','State'};
