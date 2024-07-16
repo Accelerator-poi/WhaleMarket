@@ -32,12 +32,3 @@ void MainMenu::PageShow()
             break;
     }
 }
-
-void MainMenu::MainHandle(int choice)
-{
-    switch(choice)
-    {
-        // case 1:
-
-    }    
-}

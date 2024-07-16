@@ -36,6 +36,15 @@ public:
     void UserSignIn();
     void AdminLogin();
 
+    void GoodsInfo();
+    void SearchGoods();
+    void OrdersInfo();
+    void UsersInfo();
+    void DeleteUser();
+    void BanGood();
+    
+
+
 private:
     PageState currentState = PageState::MainPage;
     std::string UserId;

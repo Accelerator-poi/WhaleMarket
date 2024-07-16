@@ -41,9 +41,11 @@ int main()
     //     }
     //     std::cout<<std::endl;
     // };
+    int num;
     MainMenu menu;
     menu.PageShow();
-    menu.UserLogin();
+    std::cin>>num;
+    menu.MainHandle(num);
     menu.PageShow();
     return 0;
 }
