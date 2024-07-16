@@ -98,3 +98,30 @@ void Datafiles::getdata(std::vector<std::string> &data)
     infile.close();
     infile.clear();
 }
+
+void Datafiles::cleardata()
+{
+    std::string tile = "";
+    infile.open(this->filename);
+    if (!infile.is_open())
+    {
+        throw MyException("文件打开失败");
+    }
+    std::string line;
+    getline(infile, line);
+    infile.close();
+    infile.clear();
+    outfile.open(this->filename);
+    if (!outfile.is_open())
+    {
+        throw MyException("文件打开失败");
+    }
+    outfile << line << std::endl;
+    outfile.close();
+    outfile.clear();
+}
+
+// const char *Datafiles::getfilename()
+// {
+//     return this->filename.c_str();
+// }

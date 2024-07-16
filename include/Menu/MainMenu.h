@@ -42,7 +42,6 @@ public:
     void UsersInfo();
     void DeleteUser();
     void BanGood();
-    
 
 
 private:

@@ -20,6 +20,8 @@ public:
     void savedata(const Order& order);
     void savedata(const std::vector<std::vector<std::string>> &vec);
     void getdata(std::vector<std::string>& data);
+    void cleardata();
+    // const char* getfilename();
 
 private:
     std::string filename;
