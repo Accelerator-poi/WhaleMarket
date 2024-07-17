@@ -51,7 +51,7 @@ public:
 
     void SellGoods();
     void SellerGoodsInfo();
-    void ModifyGoods();
+    // void ModifyGoods();
     void SellerBanGood();
     void SellerViewOrder();
 

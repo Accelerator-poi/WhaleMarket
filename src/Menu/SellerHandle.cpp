@@ -122,6 +122,7 @@ void MainMenu::SellerGoodsInfo()
     std::cout << std::setw(90) << std::setfill('*') << '*' << std::endl;
 }
 
+/*
 void MainMenu::ModifyGoods()
 {
     if (this->UserId == "")
@@ -140,7 +141,7 @@ void MainMenu::ModifyGoods()
 
     while (true)
     {
-        std::cout << "请输入商品ID:" << std::endl;
+        std::cout << "请输入商品ID:";
         std::cin >> GoodId;
 
         for (auto Good : GoodVec)
@@ -174,7 +175,7 @@ void MainMenu::ModifyGoods()
         switch (choice)
         {
         case 1:
-            std::cout << "请输入新的商品名称：" << std::endl;
+            std::cout << "请输入新的商品名称：" << std:;
             std::cin >> ModifyStr;
             flag = true;
             break;
@@ -216,6 +217,7 @@ void MainMenu::ModifyGoods()
     std::cout << "修改成功！" << std::endl;
     std::cout << std::setw(40) << std::setfill('*') << '*' << std::endl;
 }
+*/
 
 void MainMenu::SellerBanGood()
 {

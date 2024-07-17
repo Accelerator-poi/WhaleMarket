@@ -6,8 +6,8 @@
 #include "config.h"
 class Buffer;
 
-// extern char* stateprompte[3];
-static const char *stateprompte[3] = {"已售出", "已下架", "销售中"};
+extern const char* stateprompte[3];
+// static const char *stateprompte[3] = {"已售出", "已下架", "销售中"};
 
 class Goods
 {

@@ -55,7 +55,7 @@ void MainMenu::BuyerGoodsInfo()
     std::cout << std::endl;
     for (auto Good : GoodVec)
     {
-        for (int i = 0; i < int(Good.size() - 1); i++)
+        for (int i = 0; i < int(Good.size() - 2); i++)
         {
             if(i <3)
                 std::cout << std::setw(15) << std::setfill(' ') << std::left << Good[i];
@@ -75,7 +75,7 @@ void MainMenu::BuyGoods()
         return;
     }
     std::string GoodId;
-    std::cout << "请输入商品ID:" << std::endl;
+    std::cout << "请输入商品ID:";
     std::cin >> GoodId;
     Datafiles GoodFile("/home/luffy/WhaleMarket-Framework/data/GoodData.txt");
     Data GoodData;

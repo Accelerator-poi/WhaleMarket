@@ -12,7 +12,7 @@ Buffer::Buffer()
 
 void Buffer::copy(char *str, const char *_str)
 {
-    if (strlen(_str) < int(this->size))
+    if (static_cast<int>(strlen(_str)) < this->size)
     {
         strncpy(str, _str, strlen(_str) + 1);
     }

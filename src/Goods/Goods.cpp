@@ -1,6 +1,7 @@
 #include "Goods/Goods.h"
 #include "Buffer/Buffer.h"
 
+const char *stateprompte[3] = {"已售出", "已下架", "销售中"};
 
 Goods::Goods(const char *GoodsId,const char *Name,const float Price,
             const char *Info,const char *SellerId,const char *Time,const int State)

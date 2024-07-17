@@ -71,7 +71,7 @@ void MainMenu::SearchGoods()
     std::vector<std::vector<std::string>> GoodInfo;
     while (!Istrue)
     {
-        std::cout << "请输入商品ID:" << std::endl;
+        std::cout << "请输入商品ID:";
         std::cin >> GoodsId;
         GoodData.find("Id", GoodsId, GoodsMap, file, GoodInfo);
         if (!GoodInfo.empty())
@@ -79,7 +79,7 @@ void MainMenu::SearchGoods()
             Istrue = true;
             break;
         }
-        std::cout << "商品Id错误,请重新输入："<<std::endl;
+        std::cout << "商品Id错误,请重新输入：";
     }
     std::cout << std::setw(90) << std::setfill('*') << '*' << std::endl;
     for (int i = 0; i < 6; i++)
@@ -162,7 +162,7 @@ void MainMenu::DeleteUser()
     std::cout << std::setw(75) << std::setfill('*') << '*' << std::endl;
     while(!Istrue)
     {
-        std::cout<<"请输入用户Id:"<<std::endl;
+        std::cout<<"请输入用户Id:";
         std::cin>>UserId;
         data.find("Id",UserId,UserMap,Userfile,Uservec);
         if(!Uservec.empty())
@@ -188,7 +188,7 @@ void MainMenu::BanGood()
     std::cout << std::setw(75) << std::setfill('*') << '*' << std::endl;
     while(!Istrue)
     {
-        std::cout<<"请输入商品Id:"<<std::endl;
+        std::cout<<"请输入商品Id:";
         std::cin>>GoodId;
         data.find("Id",GoodId,GoodsMap,Goodfile,Goodvec);
         if(!Goodvec.empty())
